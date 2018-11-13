@@ -308,19 +308,44 @@ The following objects are masked from ‘package:base’:
 </div>
 <div id="problem-16.3" class="section level3">
 <h3>Problem 16.3</h3>
+<ol style="list-style-type: decimal">
+<li>Each matched string will be two letters, e.g. AL, AK, AS</li>
+<li>There are seven strings that match in A[LKSZRAP]. For F[LM], there are two strings that match. All add up to 61 patterns.</li>
+<li>Appreviations for the US states and territories</li>
+</ol>
 </div>
 <div id="problem-16.4" class="section level3">
 <h3>Problem 16.4</h3>
 </div>
 <div id="problem-16.5" class="section level3">
 <h3>Problem 16.5</h3>
-</div>
-<div id="problem-16.6" class="section level3">
-<h3>Problem 16.6</h3>
 <!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuQ3JpbWVTYW1wbGUgPC1cbiAgcmVhZC5maWxlKFwiaHR0cDovL3RpbnkuY2MvZGNmL0Jvc3Rvbi1DcmltZXMtNTAuY3N2XCIpXG5gYGAifQ== -->
+<pre class="r"><code>CrimeSample &lt;-
+  read.file(&quot;http://tiny.cc/dcf/Boston-Crimes-50.csv&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUmVhZGluZyBkYXRhIHdpdGggcmVhZC5jc3YoKVxuIn0= -->
+<pre><code>Reading data with read.csv()</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubXlfcmVnZXggPC1cbiAgXCJcXFxcKFxcXFxzKihbKy1dKlswLTldKlswLTlcXFxcLl1bMC05XSpcXFxccyosXFxcXHMqKFsrLV0qWzAtOV0qWzAtOS5dWzAtOV0qKVxcXFxzKlxcXFwpXCJcblJlc3VsdCA8LVxuICBDcmltZVNhbXBsZSAlPiVcbiAgZXh0cmFjdChMb2NhdGlvbiwgXG4gICAgICAgICAgaW50bz1jKFwibGF0XCIsIFwibG9uZ1wiKSwgXG4gICAgICAgICAgcmVnZXggPSBteV9yZWdleCwgXG4gICAgICAgICAgY29udmVydCA9IFRSVUUpXG5gYGAifQ== -->
+<pre class="r"><code>my_regex &lt;-
+  &quot;\\(\\s*([+-]*[0-9]*[0-9\\.][0-9]*\\s*,\\s*([+-]*[0-9]*[0-9.][0-9]*)\\s*\\)&quot;
+Result &lt;-
+  CrimeSample %&gt;%
+  extract(Location, 
+          into=c(&quot;lat&quot;, &quot;long&quot;), 
+          regex = my_regex, 
+          convert = TRUE)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3IgaW4gc3RyaW5naTo6c3RyaV9tYXRjaF9maXJzdF9yZWdleCh2YWx1ZSwgcmVnZXgpIDogXG4gIEluY29ycmVjdGx5IG5lc3RlZCBwYXJlbnRoZXNlcyBpbiByZWdleHAgcGF0dGVybi4gKFVfUkVHRVhfTUlTTUFUQ0hFRF9QQVJFTilcbiJ9 -->
+<pre><code>Error in stringi::stri_match_first_regex(value, regex) : 
+  Incorrectly nested parentheses in regexp pattern. (U_REGEX_MISMATCHED_PAREN)</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiQ2hhcHRlciAxNiBFeGVyY2lzZSIKb3V0cHV0OiBodG1sX25vdGVib29rCk5hbWU6IERhbmllbCBMZWUKLS0tCgpTZXR1cApgYGB7cn0KbGlicmFyeSh0aWR5dmVyc2UpCmxpYnJhcnkoRGF0YUNvbXB1dGluZykKbGlicmFyeShtb3NhaWMpCmBgYAoKCiMjIyBQcm9ibGVtIDE2LjEKMSkgCmBgYHtyfQpCYWJ5TmFtZXMgJT4lCiAgZmlsdGVyKHNleCA9PSAiTSIpICU+JQogIGdyb3VwX2J5KG5hbWUpICU+JQogIHN1bW1hcmlzZSh0b3RhbCA9IHN1bShjb3VudCkpICU+JQogIGZpbHRlcihncmVwbCgiW2FlaW91XSQiLCBuYW1lKSkgJT4lCiAgYXJyYW5nZShkZXNjKHRvdGFsKSkgJT4lCiAgaGVhZCgxMCkKYGBgCgoyKQpgYGB7cn0KQmFieU5hbWVzICU+JQogIGdyb3VwX2J5KG5hbWUpICU+JQogIHN1bW1hcmlzZSh0b3RhbCA9IHN1bShjb3VudCkpICU+JQogIGZpbHRlcihncmVwbCgiLiooam8kfGpvZSQpIiwgbmFtZSkpICU+JQogIGFycmFuZ2UoZGVzYyh0b3RhbCkpICU+JQogIGhlYWQoMTApCmBgYAoKIyMjIFByb2JsZW0gMTYuMgoKCiMjIyBQcm9ibGVtIDE2LjMKCgojIyMgUHJvYmxlbSAxNi40CgoKIyMjIFByb2JsZW0gMTYuNQoKCiMjIyBQcm9ibGVtIDE2LjY=</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiQ2hhcHRlciAxNiBFeGVyY2lzZSIKb3V0cHV0OiBodG1sX25vdGVib29rCk5hbWU6IERhbmllbCBMZWUKLS0tCgpTZXR1cApgYGB7cn0KbGlicmFyeSh0aWR5dmVyc2UpCmxpYnJhcnkoRGF0YUNvbXB1dGluZykKbGlicmFyeShtb3NhaWMpCmBgYAoKCiMjIyBQcm9ibGVtIDE2LjEKMSkgCmBgYHtyfQpCYWJ5TmFtZXMgJT4lCiAgZmlsdGVyKHNleCA9PSAiTSIpICU+JQogIGdyb3VwX2J5KG5hbWUpICU+JQogIHN1bW1hcmlzZSh0b3RhbCA9IHN1bShjb3VudCkpICU+JQogIGZpbHRlcihncmVwbCgiW2FlaW91XSQiLCBuYW1lKSkgJT4lCiAgYXJyYW5nZShkZXNjKHRvdGFsKSkgJT4lCiAgaGVhZCgxMCkKYGBgCgoyKQpgYGB7cn0KQmFieU5hbWVzICU+JQogIGdyb3VwX2J5KG5hbWUpICU+JQogIHN1bW1hcmlzZSh0b3RhbCA9IHN1bShjb3VudCkpICU+JQogIGZpbHRlcihncmVwbCgiLiooam8kfGpvZSQpIiwgbmFtZSkpICU+JQogIGFycmFuZ2UoZGVzYyh0b3RhbCkpICU+JQogIGhlYWQoMTApCmBgYAoKIyMjIFByb2JsZW0gMTYuMgoKCiMjIyBQcm9ibGVtIDE2LjMKMS4gRWFjaCBtYXRjaGVkIHN0cmluZyB3aWxsIGJlIHR3byBsZXR0ZXJzLCBlLmcuIEFMLCBBSywgQVMKMi4gVGhlcmUgYXJlIHNldmVuIHN0cmluZ3MgdGhhdCBtYXRjaCBpbiBBW0xLU1pSQVBdLiBGb3IgRltMTV0sIHRoZXJlIGFyZSB0d28gc3RyaW5ncyB0aGF0IG1hdGNoLiBBbGwgYWRkIHVwIHRvIDYxIHBhdHRlcm5zLgozLiBBcHByZXZpYXRpb25zIGZvciB0aGUgVVMgc3RhdGVzIGFuZCB0ZXJyaXRvcmllcwoKIyMjIFByb2JsZW0gMTYuNAoKCiMjIyBQcm9ibGVtIDE2LjUKYGBge3J9CkNyaW1lU2FtcGxlIDwtCiAgcmVhZC5maWxlKCJodHRwOi8vdGlueS5jYy9kY2YvQm9zdG9uLUNyaW1lcy01MC5jc3YiKQoKbXlfcmVnZXggPC0KICAiXFwoXFxzKihbKy1dKlswLTldKlswLTlcXC5dWzAtOV0qXFxzKixcXHMqKFsrLV0qWzAtOV0qWzAtOS5dWzAtOV0qKVxccypcXCkiCgpSZXN1bHQgPC0KICBDcmltZVNhbXBsZSAlPiUKICBleHRyYWN0KExvY2F0aW9uLCAKICAgICAgICAgIGludG89YygibGF0IiwgImxvbmciKSwgCiAgICAgICAgICByZWdleCA9IG15X3JlZ2V4LCAKICAgICAgICAgIGNvbnZlcnQgPSBUUlVFKQpgYGAK</div>
 
 
 

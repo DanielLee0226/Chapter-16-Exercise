@@ -38,12 +38,25 @@ BabyNames %>%
 
 
 ### Problem 16.3
-
+1. Each matched string will be two letters, e.g. AL, AK, AS
+2. There are seven strings that match in A[LKSZRAP]. For F[LM], there are two strings that match. All add up to 61 patterns.
+3. Appreviations for the US states and territories
 
 ### Problem 16.4
 
 
 ### Problem 16.5
+```{r}
+CrimeSample <-
+  read.file("http://tiny.cc/dcf/Boston-Crimes-50.csv")
 
+my_regex <-
+  "\\(\\s*([+-]*[0-9]*[0-9\\.][0-9]*\\s*,\\s*([+-]*[0-9]*[0-9.][0-9]*)\\s*\\)"
 
-### Problem 16.6
+Result <-
+  CrimeSample %>%
+  extract(Location, 
+          into=c("lat", "long"), 
+          regex = my_regex, 
+          convert = TRUE)
+```
