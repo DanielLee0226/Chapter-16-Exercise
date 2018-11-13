@@ -1,0 +1,49 @@
+---
+title: "Chapter 16 Exercise"
+output: html_notebook
+Name: Daniel Lee
+---
+
+Setup
+```{r}
+library(tidyverse)
+library(DataComputing)
+library(mosaic)
+```
+
+
+### Problem 16.1
+1) 
+```{r}
+BabyNames %>%
+  filter(sex == "M") %>%
+  group_by(name) %>%
+  summarise(total = sum(count)) %>%
+  filter(grepl("[aeiou]$", name)) %>%
+  arrange(desc(total)) %>%
+  head(10)
+```
+
+2)
+```{r}
+BabyNames %>%
+  group_by(name) %>%
+  summarise(total = sum(count)) %>%
+  filter(grepl(".*(jo$|joe$)", name)) %>%
+  arrange(desc(total)) %>%
+  head(10)
+```
+
+### Problem 16.2
+
+
+### Problem 16.3
+
+
+### Problem 16.4
+
+
+### Problem 16.5
+
+
+### Problem 16.6
