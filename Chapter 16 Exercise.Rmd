@@ -35,7 +35,7 @@ BabyNames %>%
 ```
 
 ### Problem 16.2
-
+[2-9], [0-9] should be extracted
 
 ### Problem 16.3
 1. Each matched string will be two letters, e.g. AL, AK, AS
@@ -43,6 +43,26 @@ BabyNames %>%
 3. Appreviations for the US states and territories
 
 ### Problem 16.4
+1.
+```{r}
+BibleNames %>%
+  group_by(name) %>%
+  filter(grepl("bar", "dam", "lory", name, ignore.case = FALSE)) %>%
+```
+
+
+2.
+```{r}
+BibleNames <-
+  read.file("http://tiny.cc/dcf/BibleNames.csv")
+
+View(BibleNames)
+
+BibleNames %>%
+  group_by(name) %>%
+  filter(grepl(".*(bar$|dam$|lory$)", name)) %>%
+  head(10)
+```
 
 
 ### Problem 16.5

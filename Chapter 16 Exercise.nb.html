@@ -293,18 +293,12 @@ The following objects are masked from ‘package:base’:
   arrange(desc(total)) %&gt;%
   head(10)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibmNvbCI6MiwibnJvdyI6MTB9LCJyZGYiOiJINHNJQUFBQUFBQUFBMTFSc1U3RE1CQzlPQW1sbGdwSWpIeERnNFJZR2FpWWtGaVl1anFwS1FiWHJoeFh3TWJLMS9BbmZBWXJZbUVCTlp3VE80MGM2ZXg3NzU3UDk1emJxL2tablZNQUlKRG1DWkFVMDR6Z2trQUdZN2MvQTZUSHJRRGdDSVA2d3Q0Tk15OFAycVA5bVpCUzhCNjdxdWpSYUtiTFVnekVEdkpCbVZ1NzY1VmZTajRBcStnV2hOemo3RnBqRFdEU3pnVW5GNmgvUi9vWDR3UG4vc2F4L3pDKzBNY254aHZHYVdRd3J5U3JhMjh1a0hUQkxDdnVERnZ4V0s2UUMzSVM1bkJrRUZodG1ZeE9qWTErS3NKSk55MTV4YVZwbWgvY3RwRjRwTmRXYUlWUzRoNCtqMlpMVEVRY2JwUnJ2WmhXOXh2MU9EM3ZIZ1BMM1RmeE9SM2twTHN5Ylh5clBQdzJycFpDOVZZa0s3bjA0QUF0dEE2S3RSSEtob2RDdGk0Nnk1NnB0QXhNNncyMi84WlFjMmhtQWdBQSJ9 -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["total"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"Maryjo","2":"6973"},{"1":"Billiejo","2":"1455"},{"1":"Marijo","2":"1275"},{"1":"Bobbijo","2":"1230"},{"1":"Bobbiejo","2":"1009"},{"1":"Bettyjo","2":"764"},{"1":"Alejo","2":"751"},{"1":"Amyjo","2":"486"},{"1":"Billyjoe","2":"393"},{"1":"Jojo","2":"303"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[10]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
 <div id="problem-16.2" class="section level3">
 <h3>Problem 16.2</h3>
+<p>[2-9], [0-9] should be extracted</p>
 </div>
 <div id="problem-16.3" class="section level3">
 <h3>Problem 16.3</h3>
@@ -316,6 +310,51 @@ The following objects are masked from ‘package:base’:
 </div>
 <div id="problem-16.4" class="section level3">
 <h3>Problem 16.4</h3>
+<ol style="list-style-type: decimal">
+<li></li>
+</ol>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuQmlibGVOYW1lcyAlPiVcbiAgZ3JvdXBfYnkobmFtZSkgJT4lXG4gIGZpbHRlcihncmVwbChcImJhclwiLCBcImRhbVwiLCBcImxvcnlcIiwgbmFtZSwgaWdub3JlLmNhc2UgPSBGQUxTRSkpICU+JVxuYGBgIn0= -->
+<pre class="r"><code>BibleNames %&gt;%
+  group_by(name) %&gt;%
+  filter(grepl(&quot;bar&quot;, &quot;dam&quot;, &quot;lory&quot;, name, ignore.case = FALSE)) %&gt;%</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3I6IEluY29tcGxldGUgZXhwcmVzc2lvbjogQmlibGVOYW1lcyA+XG4gIGdyb3VwX2J5KG5hbWUpID5cbiAgZmlsdGVyKGdyZXBsKFwiYmFyXCIsIFwiZGFtXCIsIFwibG9yeVwiLCBuYW1lLCBpZ25vcmUuY2FzZSA9IEZBTFNFKSkgPlxuIn0= -->
+<pre><code>Error: Incomplete expression: BibleNames &gt;
+  group_by(name) &gt;
+  filter(grepl(&quot;bar&quot;, &quot;dam&quot;, &quot;lory&quot;, name, ignore.case = FALSE)) &gt;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<ol start="2" style="list-style-type: decimal">
+<li></li>
+</ol>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuQmlibGVOYW1lcyA8LVxuICByZWFkLmZpbGUoXCJodHRwOi8vdGlueS5jYy9kY2YvQmlibGVOYW1lcy5jc3ZcIilcbmBgYCJ9 -->
+<pre class="r"><code>BibleNames &lt;-
+  read.file(&quot;http://tiny.cc/dcf/BibleNames.csv&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUmVhZGluZyBkYXRhIHdpdGggcmVhZC5jc3YoKVxuIn0= -->
+<pre><code>Reading data with read.csv()</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuVmlldyhCaWJsZU5hbWVzKVxuQmlibGVOYW1lcyAlPiVcbiAgZ3JvdXBfYnkobmFtZSkgJT4lXG4gIGZpbHRlcihncmVwbChcIi4qKGJhciR8ZGFtJHxsb3J5JClcIiwgbmFtZSkpICU+JVxuICBoZWFkKDEwKVxuYGBgIn0= -->
+<pre class="r"><code>View(BibleNames)
+BibleNames %&gt;%
+  group_by(name) %&gt;%
+  filter(grepl(&quot;.*(bar$|dam$|lory$)&quot;, name)) %&gt;%
+  head(10)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImdyb3VwZWRfZGYiLCJ0YmxfZGYiLCJ0YmwiLCJkYXRhLmZyYW1lIl0sIm5jb2wiOjIsIm5yb3ciOjZ9LCJyZGYiOiJINHNJQUFBQUFBQUFBMTFSeVc2RE1CQTFFSWhBVFZzMVArQWZDSWNlZXVtcGFxdGNxNTV5SGNBRVZMQ2p3YWpMcWQvZFEraVkyRmxBd3A1NTgyWjU0L2VYelgyeVNSaGpQZ3RDai9rQm1UT2ZEby9OV0d6dUw4YUM1VWhnN0piK3lBWm1Ud1cwMW82ZUs1RUJXbS8rMnJUcUZKeXY0UWRPMFdoZFoyZmVHNkR4TG10ZmNRR29xKzlIanFLdzJCMHZGZWFDSytTZFJpRzN1cktSSmRlVjRHdFZjRlh5VmtEWG96Z1dBazdrRVRxT1ovS1YzRm8zSmtyWFp6MW1FK1ZoM2tEWDJja2NtQlNnSVMwUldqR2xTOEljM1hkTE1xRHJTNlBKbXZwZTVzV29QbE9YdXpDNXYzUU13L0JIMTM1Q25xdWRycFVrcW0vZUpKeE01K0VFdU9tbEtWMnM4cXFYSDZzSG8yQU1INzZGdGFNejJ6KzBEQVpiS25RdlJTdXZwUk1UTnBDSnhqclhKR0ZVa082d2x0cXRpdEF1MVVxRDR5VzVhaHd5YW1QN2YwSENrOXFCQWdBQSJ9 -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["meaning"],"name":[2],"type":["chr"],"align":["left"]}],"data":[{"1":"Adam","2":"earthy; red"},{"1":"Chebar","2":"force or strength"},{"1":"Elmodam","2":"the God of measure"},{"1":"Gazabar","2":"a treasurer"},{"1":"Gibbar","2":"strong"},{"1":"Parbar","2":"a suburb"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[6]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 </div>
 <div id="problem-16.5" class="section level3">
 <h3>Problem 16.5</h3>
@@ -345,7 +384,7 @@ Result &lt;-
 <!-- rnb-chunk-end -->
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiQ2hhcHRlciAxNiBFeGVyY2lzZSIKb3V0cHV0OiBodG1sX25vdGVib29rCk5hbWU6IERhbmllbCBMZWUKLS0tCgpTZXR1cApgYGB7cn0KbGlicmFyeSh0aWR5dmVyc2UpCmxpYnJhcnkoRGF0YUNvbXB1dGluZykKbGlicmFyeShtb3NhaWMpCmBgYAoKCiMjIyBQcm9ibGVtIDE2LjEKMSkgCmBgYHtyfQpCYWJ5TmFtZXMgJT4lCiAgZmlsdGVyKHNleCA9PSAiTSIpICU+JQogIGdyb3VwX2J5KG5hbWUpICU+JQogIHN1bW1hcmlzZSh0b3RhbCA9IHN1bShjb3VudCkpICU+JQogIGZpbHRlcihncmVwbCgiW2FlaW91XSQiLCBuYW1lKSkgJT4lCiAgYXJyYW5nZShkZXNjKHRvdGFsKSkgJT4lCiAgaGVhZCgxMCkKYGBgCgoyKQpgYGB7cn0KQmFieU5hbWVzICU+JQogIGdyb3VwX2J5KG5hbWUpICU+JQogIHN1bW1hcmlzZSh0b3RhbCA9IHN1bShjb3VudCkpICU+JQogIGZpbHRlcihncmVwbCgiLiooam8kfGpvZSQpIiwgbmFtZSkpICU+JQogIGFycmFuZ2UoZGVzYyh0b3RhbCkpICU+JQogIGhlYWQoMTApCmBgYAoKIyMjIFByb2JsZW0gMTYuMgoKCiMjIyBQcm9ibGVtIDE2LjMKMS4gRWFjaCBtYXRjaGVkIHN0cmluZyB3aWxsIGJlIHR3byBsZXR0ZXJzLCBlLmcuIEFMLCBBSywgQVMKMi4gVGhlcmUgYXJlIHNldmVuIHN0cmluZ3MgdGhhdCBtYXRjaCBpbiBBW0xLU1pSQVBdLiBGb3IgRltMTV0sIHRoZXJlIGFyZSB0d28gc3RyaW5ncyB0aGF0IG1hdGNoLiBBbGwgYWRkIHVwIHRvIDYxIHBhdHRlcm5zLgozLiBBcHByZXZpYXRpb25zIGZvciB0aGUgVVMgc3RhdGVzIGFuZCB0ZXJyaXRvcmllcwoKIyMjIFByb2JsZW0gMTYuNAoKCiMjIyBQcm9ibGVtIDE2LjUKYGBge3J9CkNyaW1lU2FtcGxlIDwtCiAgcmVhZC5maWxlKCJodHRwOi8vdGlueS5jYy9kY2YvQm9zdG9uLUNyaW1lcy01MC5jc3YiKQoKbXlfcmVnZXggPC0KICAiXFwoXFxzKihbKy1dKlswLTldKlswLTlcXC5dWzAtOV0qXFxzKixcXHMqKFsrLV0qWzAtOV0qWzAtOS5dWzAtOV0qKVxccypcXCkiCgpSZXN1bHQgPC0KICBDcmltZVNhbXBsZSAlPiUKICBleHRyYWN0KExvY2F0aW9uLCAKICAgICAgICAgIGludG89YygibGF0IiwgImxvbmciKSwgCiAgICAgICAgICByZWdleCA9IG15X3JlZ2V4LCAKICAgICAgICAgIGNvbnZlcnQgPSBUUlVFKQpgYGAK</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiQ2hhcHRlciAxNiBFeGVyY2lzZSIKb3V0cHV0OiBodG1sX25vdGVib29rCk5hbWU6IERhbmllbCBMZWUKLS0tCgpTZXR1cApgYGB7cn0KbGlicmFyeSh0aWR5dmVyc2UpCmxpYnJhcnkoRGF0YUNvbXB1dGluZykKbGlicmFyeShtb3NhaWMpCmBgYAoKCiMjIyBQcm9ibGVtIDE2LjEKMSkgCmBgYHtyfQpCYWJ5TmFtZXMgJT4lCiAgZmlsdGVyKHNleCA9PSAiTSIpICU+JQogIGdyb3VwX2J5KG5hbWUpICU+JQogIHN1bW1hcmlzZSh0b3RhbCA9IHN1bShjb3VudCkpICU+JQogIGZpbHRlcihncmVwbCgiW2FlaW91XSQiLCBuYW1lKSkgJT4lCiAgYXJyYW5nZShkZXNjKHRvdGFsKSkgJT4lCiAgaGVhZCgxMCkKYGBgCgoyKQpgYGB7cn0KQmFieU5hbWVzICU+JQogIGdyb3VwX2J5KG5hbWUpICU+JQogIHN1bW1hcmlzZSh0b3RhbCA9IHN1bShjb3VudCkpICU+JQogIGZpbHRlcihncmVwbCgiLiooam8kfGpvZSQpIiwgbmFtZSkpICU+JQogIGFycmFuZ2UoZGVzYyh0b3RhbCkpICU+JQogIGhlYWQoMTApCmBgYAoKIyMjIFByb2JsZW0gMTYuMgpbMi05XSwgWzAtOV0gc2hvdWxkIGJlIGV4dHJhY3RlZAoKIyMjIFByb2JsZW0gMTYuMwoxLiBFYWNoIG1hdGNoZWQgc3RyaW5nIHdpbGwgYmUgdHdvIGxldHRlcnMsIGUuZy4gQUwsIEFLLCBBUwoyLiBUaGVyZSBhcmUgc2V2ZW4gc3RyaW5ncyB0aGF0IG1hdGNoIGluIEFbTEtTWlJBUF0uIEZvciBGW0xNXSwgdGhlcmUgYXJlIHR3byBzdHJpbmdzIHRoYXQgbWF0Y2guIEFsbCBhZGQgdXAgdG8gNjEgcGF0dGVybnMuCjMuIEFwcHJldmlhdGlvbnMgZm9yIHRoZSBVUyBzdGF0ZXMgYW5kIHRlcnJpdG9yaWVzCgojIyMgUHJvYmxlbSAxNi40CjEuCmBgYHtyfQpCaWJsZU5hbWVzICU+JQogIGdyb3VwX2J5KG5hbWUpICU+JQogIGZpbHRlcihncmVwbCgiYmFyIiwgImRhbSIsICJsb3J5IiwgbmFtZSwgaWdub3JlLmNhc2UgPSBGQUxTRSkpICU+JQpgYGAKCgoyLgpgYGB7cn0KQmlibGVOYW1lcyA8LQogIHJlYWQuZmlsZSgiaHR0cDovL3RpbnkuY2MvZGNmL0JpYmxlTmFtZXMuY3N2IikKClZpZXcoQmlibGVOYW1lcykKCkJpYmxlTmFtZXMgJT4lCiAgZ3JvdXBfYnkobmFtZSkgJT4lCiAgZmlsdGVyKGdyZXBsKCIuKihiYXIkfGRhbSR8bG9yeSQpIiwgbmFtZSkpICU+JQogIGhlYWQoMTApCmBgYAoKCiMjIyBQcm9ibGVtIDE2LjUKYGBge3J9CkNyaW1lU2FtcGxlIDwtCiAgcmVhZC5maWxlKCJodHRwOi8vdGlueS5jYy9kY2YvQm9zdG9uLUNyaW1lcy01MC5jc3YiKQoKbXlfcmVnZXggPC0KICAiXFwoXFxzKihbKy1dKlswLTldKlswLTlcXC5dWzAtOV0qXFxzKixcXHMqKFsrLV0qWzAtOV0qWzAtOS5dWzAtOV0qKVxccypcXCkiCgpSZXN1bHQgPC0KICBDcmltZVNhbXBsZSAlPiUKICBleHRyYWN0KExvY2F0aW9uLCAKICAgICAgICAgIGludG89YygibGF0IiwgImxvbmciKSwgCiAgICAgICAgICByZWdleCA9IG15X3JlZ2V4LCAKICAgICAgICAgIGNvbnZlcnQgPSBUUlVFKQpgYGAK</div>
 
 
 
